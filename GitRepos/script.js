@@ -1,5 +1,6 @@
 const createPage = async () => {
     const users = await getUsersData();
+    displayUserRepos('zamfirandreea');
     users.map(user => user.login)
         .forEach(username => displayUserRepos(username));
 };
