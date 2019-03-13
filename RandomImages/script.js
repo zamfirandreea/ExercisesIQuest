@@ -1,9 +1,16 @@
+const createPage = async () => {
+    createImageSection();
+    createRandomButton();
+    const image = await getImageResponse();
+    createRandomImage(image);
+};
+
 const getImageResponse = async () => {
   try {
       const response = await axios.get('https://picsum.photos/200/300/?random', {
           responseType: 'arraybuffer'
       });
-      createRandomImage(btoa(String.fromCharCode(...new Uint8Array(response.data))));
+      return btoa(String.fromCharCode(...new Uint8Array(response.data)));
   }  catch (error) {
       console.log(error);
   }
@@ -40,10 +47,5 @@ const onRandomButtonClick = () => {
     getImageResponse();
 };
 
-const createPage = () => {
-    createImageSection();
-    createRandomButton();
-    getImageResponse();
-};
 
 createPage();
