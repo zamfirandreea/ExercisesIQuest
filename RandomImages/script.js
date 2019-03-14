@@ -1,6 +1,7 @@
+// Se putea face mai usor direct cu url-ul pus in src, dar am inteles ca trebuie sa facem cu axios/fetch
 const createPage = async () => {
     createImageSection();
-    createRandomButton();
+    await createRandomButton();
     const image = await getImageResponse();
     createRandomImage(image);
 };
@@ -35,16 +36,18 @@ const createImageSection = () => {
     document.body.appendChild(imageSection);
 };
 
-const createRandomButton = () => {
+const createRandomButton = async () => {
   const randomButton = document.createElement('button');
   randomButton.className = 'random_button';
   randomButton.innerHTML = 'Get Random Image';
-  randomButton.onclick = onRandomButtonClick;
+  randomButton.onclick = await onRandomButtonClick;
   document.getElementsByClassName('image_section')[0].appendChild(randomButton);
 };
 
-const onRandomButtonClick = () => {
-    getImageResponse();
+const onRandomButtonClick = async () => {
+    console.log('click');
+    const image = await getImageResponse();
+    createRandomImage(image);
 };
 
 

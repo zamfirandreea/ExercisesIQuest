@@ -1,0 +1,23 @@
+.image_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.random_button {
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #555;
+    border: aliceblue;
+    color: #fff;
+    padding: 10px 32px;
+    font-size: 16px;
+}
+
+.random_button:hover {
+    background-color: #444; /* Green */
+    color: #fff;
+    cursor: pointer;
+}

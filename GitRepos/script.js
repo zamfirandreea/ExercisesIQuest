@@ -40,6 +40,7 @@ const createUserTable = (username, repos) => {
 const createTableHeader = (table, username) => {
     const tableUserRow = document.createElement('tr');
     const tableColUser = document.createElement('th');
+    tableColUser.colSpan = '3';
     tableColUser.innerHTML = `${username}'s repo`;
 
     const tableRow = document.createElement('tr');
